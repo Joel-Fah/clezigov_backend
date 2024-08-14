@@ -1,0 +1,52 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-whiteColor">
+
+<head>
+    <!-- og meta tags -->
+    {% block meta_tags %}
+
+    {% endblock meta_tags %}
+
+
+    <meta charset="UTF-8">
+    <title>
+        Clezigov - {% block title %}{% endblock title %}
+    </title>
+
+    {# Favicon #}
+    <link rel="shortcut icon" href="{% static 'core/images/app_icon.svg' %}" type="image/x-icon">
+
+    {# Font ~ Dm Sans @Google Fonts#}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
+    {# Icons ~ HugeIcons, Free Stroke rounded icons. #}
+    <!-- SVG codes of icons are directly obtained (copied) from https://hugeicons.com/icons -->
+
+    {# CSS: Tailwind, Custom #}
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'auth/css/styles.css' %}">
+
+</head>
+
+<body class="font-sans text-lg text-darkColor {% block body_styles %}{% endblock body_styles %}">
+
+    {% block body %}
+
+    {% endblock %}
+
+    
+    {# JS and Additional javascript #}    
+    {% block javascript %}
+      
+    {% endblock javascript %}
+    <script src="{% static 'auth/js/tabs.js' %}"></script>
+</body>
+
+</html>

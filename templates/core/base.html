@@ -17,7 +17,7 @@
     </title>
 
     {# Favicon #}
-    <link rel="shortcut icon" href="{% static 'images/app_icon.svg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'core/images/app_icon.svg' %}" type="image/x-icon">
 
     {# Font ~ Dm Sans @Google Fonts#}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
 
     {# CSS: Tailwind, Custom #}
     {% tailwind_css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
 
     {# Preload JS ~ Jquery #}
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
@@ -53,8 +53,8 @@
       
     {% endblock javascript %}
 
-    <script src="{% static 'js/hide_navbar.js' %}"></script>
-    <script src="{% static 'js/page_transition.js' %}"></script>
+    <script src="{% static 'core/js/hide_navbar.js' %}"></script>
+    <script src="{% static 'core/js/page_transition.js' %}"></script>
 </body>
 
 </html>

@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core.apps.CoreConfig',
+    'authentication.apps.AuthenticationConfig',
     'django_summernote',
     'tailwind',
     'theme',
@@ -103,7 +104,7 @@ USE_TZ = True
 STATIC_URL = 'theme/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR / 'core/static/'),
+    os.path.join(BASE_DIR / 'static/'),
     os.path.join(BASE_DIR / 'theme/static/'),
 ]
 

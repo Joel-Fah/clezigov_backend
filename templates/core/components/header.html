@@ -1,9 +1,9 @@
-{% load static %}
 {% load tailwind_tags %}
+{% load static %}
 
 {% with request.resolver_match.url_name as url_name %}
 <header>
-    <nav id="navbar" class="fixed -bottom-10 translate-y-0 opacity-10 hover:opacity-100 left-1/2 transform -translate-x-1/2 bg-whiteColor/70 backdrop-blur-xl shadow-lg shadow-primaryColor/20 rounded-3xl transition-all duration-300 ease-in-out">
+    <nav id="navbar" class="fixed -bottom-10 opacity-10 hover:opacity-100 left-1/2 transform -translate-x-1/2 translate-y-0 bg-whiteColor/70 backdrop-blur-xl shadow-lg shadow-primaryColor/20 rounded-3xl transition-all duration-300 ease-in-out">
         <ul class="inline-flex">
             <li class="p-2">
                 <a href="{% if url_name == 'procedures' %} #procedures {% else %} {% url 'core:procedures' %} {% endif %}" 
@@ -50,8 +50,8 @@
             <li class="p-2">
                 <a href="{% if url_name == 'profile' %} #profile {% else %} {% url 'core:profile' %} {% endif %}" 
                 class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'profile' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
-                    <div class="">
-                        <img src="{% static 'images/pfp.jpg' %}" class="{% if url_name == 'profile' %} ring-whiteColor {% else %} ring-primaryColor {% endif %} ring-2 rounded-full w-6" alt="Profile picture">
+                    <div class="w-6 h-6">
+                        <img src="{% static 'core/images/pfp.jpg' %}" class="{% if url_name == 'profile' %} ring-whiteColor {% else %} ring-primaryColor {% endif %} ring-2 rounded-full" alt="Profile picture">
                     </div>
                     Profile
                 </a>

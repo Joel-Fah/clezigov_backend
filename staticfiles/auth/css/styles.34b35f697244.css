@@ -1,0 +1,13 @@
+select:has(option:disabled:checked[hidden]) {
+    color: #94a3b8;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y2ZjVmNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTE4IDE0cy00LjQxOSA1LTYgNXMtNi01LTYtNW0xMi00cy00LjQxOS01LTYtNXMtNiA1LTYgNSIgY29sb3I9IiNmNmY1ZjQiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+}
+
+select option {
+    color: #F6F5F4;
+}

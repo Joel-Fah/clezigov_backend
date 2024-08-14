@@ -3,7 +3,7 @@ from django_summernote.admin import SummernoteModelAdmin
 from django.contrib.admin.widgets import AdminFileWidget
 from django.utils.html import format_html
 from django.db import models
-from .models import Availability, Category, Contact, Document, Image
+from .models import Availability, Category, Contact, Document, Image, Phone, Tag, Procedure
 
 
 # Register your models here.
@@ -53,7 +53,7 @@ class ContactAdmin(admin.ModelAdmin):
         return obj.procedure.title
 
 
-class DocumentAdmin(admin.ModelAdmin):
+class DocumentAdmin(SummernoteModelAdmin):
     model = Document
     list_display = ['id', 'name', 'type']
     search_fields = ['name', 'description']
@@ -78,9 +78,40 @@ class ImageAdmin(admin.ModelAdmin):
     def get_procedure_title(self, obj):
         return obj.procedure.title
 
+class PhoneAdmin(admin.ModelAdmin):
+    model = Phone
+    list_display = ['id', 'phone_number', 'is_whatsapp', 'is_calling', 'is_messaging']
+    search_fields = ['phone_number']
+    list_filter = ['phone_number']
+
+class TagAdmin(admin.ModelAdmin):
+    model = Tag
+    list_display = ['id', 'name', 'get_procedure_title']
+    search_fields = ['name']
+    list_filter = ['name']
+
+    @admin.display(description='Procedure title', ordering='procedure__title')
+    def get_procedure_title(self, obj):
+        return obj.procedure.title
+
+class ProcedureAdmin(SummernoteModelAdmin):
+    model = Procedure
+    list_display = ['id', 'title', 'get_category_name', 'is_visible']
+    search_fields = ['title', 'category']
+    list_filter = ['title', 'category']
+
+    summernote_fields = ('description')
+
+    @admin.display(description='Category name', ordering='category__name')
+    def get_category_name(self, obj):
+        return obj.category.name
 
 # Register in admin dashboard
 admin.site.register(Availability, AvailabilityAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Document, DocumentAdmin)
+admin.site.register(Image, ImageAdmin)
+admin.site.register(Phone, PhoneAdmin)
+admin.site.register(Tag, TagAdmin)
+admin.site.register(Procedure, ProcedureAdmin)
