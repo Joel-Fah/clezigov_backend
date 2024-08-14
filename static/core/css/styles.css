@@ -3,3 +3,23 @@ body.page-transition {
     opacity: 0;
     transition: opacity 0.5s ease-out;
 }
+
+/* Tailwind CSS classes used in the JavaScript file */
+
+/* Class for hiding the navbar */
+.translate-y-0 {
+    transform: translateY(0) translateX(-50%);
+}
+
+.opacity-10 {
+    opacity: 0.1;
+}
+
+/* Class for showing the navbar */
+.-translate-y-14 {
+    transform: translateY(-3.5rem) translateX(-50%);
+}
+
+.opacity-100 {
+    opacity: 1;
+}
