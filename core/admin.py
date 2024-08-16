@@ -59,7 +59,7 @@ class DocumentAdmin(SummernoteModelAdmin):
     search_fields = ['name', 'description']
     list_filter = ['name', 'type']
 
-    summernote_fields = ('description')
+    summernote_fields = 'description'
 
     formfield_overrides = {
         models.ImageField: {"widget": CustomAdminFileWidget}
@@ -78,11 +78,13 @@ class ImageAdmin(admin.ModelAdmin):
     def get_procedure_title(self, obj):
         return obj.procedure.title
 
+
 class PhoneAdmin(admin.ModelAdmin):
     model = Phone
     list_display = ['id', 'phone_number', 'is_whatsapp', 'is_calling', 'is_messaging']
     search_fields = ['phone_number']
     list_filter = ['phone_number']
+
 
 class TagAdmin(admin.ModelAdmin):
     model = Tag
@@ -93,6 +95,7 @@ class TagAdmin(admin.ModelAdmin):
     @admin.display(description='Procedure title', ordering='procedure__title')
     def get_procedure_title(self, obj):
         return obj.procedure.title
+
 
 class ProcedureAdmin(SummernoteModelAdmin):
     model = Procedure
@@ -105,6 +108,7 @@ class ProcedureAdmin(SummernoteModelAdmin):
     @admin.display(description='Category name', ordering='category__name')
     def get_category_name(self, obj):
         return obj.category.name
+
 
 # Register in admin dashboard
 admin.site.register(Availability, AvailabilityAdmin)

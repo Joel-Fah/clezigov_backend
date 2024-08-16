@@ -9,14 +9,14 @@ Login
 
 {# Additional body styles #}
 {% block body_styles %}
-bg-backgroundColor bg-center bg-cover bg-[url(https://github.com/Joel-Fah/images/blob/main/about_bg.png?raw=true)]
+h-screen bg-backgroundColor bg-center bg-cover bg-[url(https://github.com/Joel-Fah/images/blob/main/connect_bg.png?raw=true)]
 {% endblock body_styles %}
 
 {# Body of the page #}
 {% block body %}
-<main>
+<main class="">
     <div
-        class="flex flex-col gap-10 justify-center items-center">
+        class="flex flex-col gap-10 justify-center items-center pt-5 h-screen">
         <img src="{% static 'core/images/logo_light.svg' %}" alt="Clezigov logo" class="w-1/6">
 
         <form method="post" action=""

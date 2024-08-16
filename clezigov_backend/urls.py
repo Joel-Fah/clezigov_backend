@@ -25,6 +25,7 @@ urlpatterns = [
     path('auth/', include('authentication.urls', namespace='auth')),
     path('summernote/', include('django_summernote.urls')),
     path('__reload__/', include("django_browser_reload.urls")),
+    path('api/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:

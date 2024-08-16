@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    'rest_framework',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +153,6 @@ SUMMERNOTE_CONFIG = {
     },
     'attachment_filesize_limit': MAX_IMAGE_PIXELS,
 }
+
+# Auth
+AUTH_USER_MODEL = 'authentication.CustomUser'

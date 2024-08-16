@@ -4,6 +4,10 @@ from slugify import slugify
 
 # Create your models here.
 class Availability(models.Model):
+    class Meta:
+        verbose_name = 'Availability'
+        verbose_name_plural = 'Availabilities'
+
     procedure = models.ForeignKey('Procedure', on_delete=models.CASCADE, related_name='availabilities', blank=True)
     date = models.DateField(blank=False, null=False, help_text='Date of availability')
     from_time = models.TimeField(blank=False, null=False, help_text='Available from')
@@ -18,6 +22,10 @@ class Availability(models.Model):
 
 
 class Category(models.Model):
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
     class Filters(models.TextChoices):
         JUSTICE = 'JUSTICE', 'Justice'
         HEALTH = 'HEALTH', 'Health'
@@ -40,6 +48,10 @@ class Category(models.Model):
 
 
 class Contact(models.Model):
+    class Meta:
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
+
     procedure = models.ForeignKey('Procedure', on_delete=models.CASCADE, related_name='contacts', blank=True)
     email = models.EmailField(max_length=255, blank=True, null=True, help_text='Email address')
     address = models.CharField(max_length=255, blank=True, null=True, help_text='Physical address')
@@ -52,6 +64,10 @@ class Contact(models.Model):
 
 
 class Document(models.Model):
+    class Meta:
+        verbose_name = 'Document'
+        verbose_name_plural = 'Documents'
+
     class Filters(models.TextChoices):
         pass
 
@@ -71,6 +87,10 @@ class Document(models.Model):
 
 
 class Image(models.Model):
+    class Meta:
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
+
     procedure = models.ForeignKey('Procedure', on_delete=models.CASCADE, related_name='images', blank=True)
     image = models.ImageField(upload_to='images/', blank=False, null=False,
                               help_text='Upload an image: <strong>.PNG, .JPG</strong> file')
@@ -83,6 +103,10 @@ class Image(models.Model):
 
 
 class Phone(models.Model):
+    class Meta:
+        verbose_name = 'Phone'
+        verbose_name_plural = 'Phones'
+
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name='phone_numbers', blank=True, null=True)
     phone_number = models.CharField(max_length=255, blank=False, null=False, help_text='Phone number')
     is_whatsapp = models.BooleanField(default=False, help_text='Is this a WhatsApp number?')
@@ -97,6 +121,10 @@ class Phone(models.Model):
 
 
 class Tag(models.Model):
+    class Meta:
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+
     procedure = models.ForeignKey('Procedure', on_delete=models.CASCADE, related_name='tags', blank=True)
     name = models.CharField(max_length=255, blank=False, null=False,
                             help_text='Select a category')
@@ -109,6 +137,10 @@ class Tag(models.Model):
 
 
 class Procedure(models.Model):
+    class Meta:
+        verbose_name = 'Procedure'
+        verbose_name_plural = 'Procedures'
+
     class Filters(models.TextChoices):
         pass
 
