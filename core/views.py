@@ -3,10 +3,11 @@ from django.views.generic import TemplateView
 from rest_framework import viewsets
 from .models import Tag
 from .serializers import TagSerializer
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
-class ProceduresView(TemplateView):
+class ProceduresView(LoginRequiredMixin, TemplateView):
     template_name = 'core/procedures.html'
 
 

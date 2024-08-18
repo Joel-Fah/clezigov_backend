@@ -3,58 +3,112 @@
 
 {% with request.resolver_match.url_name as url_name %}
 <header>
-    <nav id="navbar" class="fixed -bottom-10 opacity-10 hover:opacity-100 left-1/2 transform -translate-x-1/2 translate-y-0 bg-whiteColor/70 backdrop-blur-xl shadow-lg shadow-primaryColor/20 rounded-3xl transition-all duration-300 ease-in-out">
+    <nav id="navbar"
+        class="fixed -bottom-10 opacity-10 hover:opacity-100 left-1/2 transform -translate-x-1/2 translate-y-0 bg-whiteColor/70 backdrop-blur-xl shadow-lg shadow-primaryColor/20 rounded-3xl transition-all duration-300 ease-in-out">
         <ul class="inline-flex">
             <li class="p-2">
-                <a href="{% if url_name == 'procedures' %} #procedures {% else %} {% url 'core:procedures' %} {% endif %}" 
-                class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'procedures' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
+                <a href="{% if url_name == 'procedures' %} #procedures {% else %} {% url 'core:procedures' %} {% endif %}"
+                    class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'procedures' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                        <path d="M11 6.00781H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M11 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M11 14H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M19 22C20.1046 22 21 21.1046 21 20V8C21 5.17157 21 3.75736 20.1213 2.87868C19.2426 2 17.8284 2 15 2H13C10.1716 2 8.75736 2 7.87868 2.87868C7 3.75736 7 5.17157 7 8V18M19 22C17.8954 22 17 21.1046 17 20C17 19.0572 17 18.5858 16.7071 18.2929C16.4142 18 15.9428 18 15 18H7M19 22H5C3.89543 22 3 21.1046 3 20C3 19.0572 3 18.5858 3.29289 18.2929C3.58579 18 4.05719 18 5 18H7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M11 6.00781H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M11 10H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M11 14H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M19 22C20.1046 22 21 21.1046 21 20V8C21 5.17157 21 3.75736 20.1213 2.87868C19.2426 2 17.8284 2 15 2H13C10.1716 2 8.75736 2 7.87868 2.87868C7 3.75736 7 5.17157 7 8V18M19 22C17.8954 22 17 21.1046 17 20C17 19.0572 17 18.5858 16.7071 18.2929C16.4142 18 15.9428 18 15 18H7M19 22H5C3.89543 22 3 21.1046 3 20C3 19.0572 3 18.5858 3.29289 18.2929C3.58579 18 4.05719 18 5 18H7"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     Procedures
                 </a>
             </li>
-    
+
             <li class="p-2">
-                <a href="{% if url_name == 'community' %} #community {% else %} {% url 'core:community' %} {% endif %}" 
-                class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'community' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
+                <a href="{% if url_name == 'community' %} #community {% else %} {% url 'core:community' %} {% endif %}"
+                    class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'community' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                        <path d="M20.7739 18C21.5232 18 22.1192 17.5285 22.6543 16.8691C23.7498 15.5194 21.9512 14.4408 21.2652 13.9126C20.5679 13.3756 19.7893 13.0714 18.9999 13M17.9999 11C19.3806 11 20.4999 9.88071 20.4999 8.5C20.4999 7.11929 19.3806 6 17.9999 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M3.2259 18C2.47659 18 1.88061 17.5285 1.34548 16.8691C0.250028 15.5194 2.04861 14.4408 2.73458 13.9126C3.43191 13.3756 4.21052 13.0714 4.99994 13M5.49994 11C4.11923 11 2.99994 9.88071 2.99994 8.5C2.99994 7.11929 4.11923 6 5.49994 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M8.08368 15.1112C7.0619 15.743 4.38286 17.0331 6.01458 18.6474C6.81166 19.436 7.6994 20 8.8155 20H15.1843C16.3004 20 17.1881 19.436 17.9852 18.6474C19.6169 17.0331 16.9379 15.743 15.9161 15.1112C13.52 13.6296 10.4797 13.6296 8.08368 15.1112Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M15.4999 7.5C15.4999 9.433 13.9329 11 11.9999 11C10.0669 11 8.49988 9.433 8.49988 7.5C8.49988 5.567 10.0669 4 11.9999 4C13.9329 4 15.4999 5.567 15.4999 7.5Z" stroke="currentColor" stroke-width="1.5" />
+                        <path
+                            d="M20.7739 18C21.5232 18 22.1192 17.5285 22.6543 16.8691C23.7498 15.5194 21.9512 14.4408 21.2652 13.9126C20.5679 13.3756 19.7893 13.0714 18.9999 13M17.9999 11C19.3806 11 20.4999 9.88071 20.4999 8.5C20.4999 7.11929 19.3806 6 17.9999 6"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path
+                            d="M3.2259 18C2.47659 18 1.88061 17.5285 1.34548 16.8691C0.250028 15.5194 2.04861 14.4408 2.73458 13.9126C3.43191 13.3756 4.21052 13.0714 4.99994 13M5.49994 11C4.11923 11 2.99994 9.88071 2.99994 8.5C2.99994 7.11929 4.11923 6 5.49994 6"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path
+                            d="M8.08368 15.1112C7.0619 15.743 4.38286 17.0331 6.01458 18.6474C6.81166 19.436 7.6994 20 8.8155 20H15.1843C16.3004 20 17.1881 19.436 17.9852 18.6474C19.6169 17.0331 16.9379 15.743 15.9161 15.1112C13.52 13.6296 10.4797 13.6296 8.08368 15.1112Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M15.4999 7.5C15.4999 9.433 13.9329 11 11.9999 11C10.0669 11 8.49988 9.433 8.49988 7.5C8.49988 5.567 10.0669 4 11.9999 4C13.9329 4 15.4999 5.567 15.4999 7.5Z"
+                            stroke="currentColor" stroke-width="1.5" />
                     </svg>
                     Community
                 </a>
             </li>
-    
+
             <li class="p-2">
-                <a href="{% if url_name == 'clezi' %} #clezi {% else %} {% url 'core:clezi' %} {% endif %}" 
-                class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'clezi' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
+                <a href="{% if url_name == 'clezi' %} #clezi {% else %} {% url 'core:clezi' %} {% endif %}"
+                    class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'clezi' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                        <path d="M11 8H13C15.8284 8 17.2426 8 18.1213 8.87868C19 9.75736 19 11.1716 19 14C19 16.8284 19 18.2426 18.1213 19.1213C17.2426 20 15.8284 20 13 20H12C12 20 11.5 22 8 22C8 22 9 20.9913 9 19.9827C7.44655 19.9359 6.51998 19.7626 5.87868 19.1213C5 18.2426 5 16.8284 5 14C5 11.1716 5 9.75736 5.87868 8.87868C6.75736 8 8.17157 8 11 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                        <path d="M19 11.5H19.5C20.4346 11.5 20.9019 11.5 21.25 11.701C21.478 11.8326 21.6674 12.022 21.799 12.25C22 12.5981 22 13.0654 22 14C22 14.9346 22 15.4019 21.799 15.75C21.6674 15.978 21.478 16.1674 21.25 16.299C20.9019 16.5 20.4346 16.5 19.5 16.5H19" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                        <path d="M5 11.5H4.5C3.56538 11.5 3.09808 11.5 2.75 11.701C2.52197 11.8326 2.33261 12.022 2.20096 12.25C2 12.5981 2 13.0654 2 14C2 14.9346 2 15.4019 2.20096 15.75C2.33261 15.978 2.52197 16.1674 2.75 16.299C3.09808 16.5 3.56538 16.5 4.5 16.5H5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                        <path d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" stroke="currentColor" stroke-width="1.5" />
-                        <path d="M12 5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M9 12V13M15 12V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M10 16.5C10 16.5 10.6667 17 12 17C13.3333 17 14 16.5 14 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path
+                            d="M11 8H13C15.8284 8 17.2426 8 18.1213 8.87868C19 9.75736 19 11.1716 19 14C19 16.8284 19 18.2426 18.1213 19.1213C17.2426 20 15.8284 20 13 20H12C12 20 11.5 22 8 22C8 22 9 20.9913 9 19.9827C7.44655 19.9359 6.51998 19.7626 5.87868 19.1213C5 18.2426 5 16.8284 5 14C5 11.1716 5 9.75736 5.87868 8.87868C6.75736 8 8.17157 8 11 8Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        <path
+                            d="M19 11.5H19.5C20.4346 11.5 20.9019 11.5 21.25 11.701C21.478 11.8326 21.6674 12.022 21.799 12.25C22 12.5981 22 13.0654 22 14C22 14.9346 22 15.4019 21.799 15.75C21.6674 15.978 21.478 16.1674 21.25 16.299C20.9019 16.5 20.4346 16.5 19.5 16.5H19"
+                            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        <path
+                            d="M5 11.5H4.5C3.56538 11.5 3.09808 11.5 2.75 11.701C2.52197 11.8326 2.33261 12.022 2.20096 12.25C2 12.5981 2 13.0654 2 14C2 14.9346 2 15.4019 2.20096 15.75C2.33261 15.978 2.52197 16.1674 2.75 16.299C3.09808 16.5 3.56538 16.5 4.5 16.5H5"
+                            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        <path
+                            d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z"
+                            stroke="currentColor" stroke-width="1.5" />
+                        <path d="M12 5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M9 12V13M15 12V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M10 16.5C10 16.5 10.6667 17 12 17C13.3333 17 14 16.5 14 16.5" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" />
                     </svg>
                     Clezi
                 </a>
             </li>
-    
+
             <li class="p-2">
-                <a href="{% if url_name == 'profile' %} #profile {% else %} {% url 'core:profile' %} {% endif %}" 
-                class="flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'profile' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}">
+                <a href="{% if url_name == 'profile' %} #profile {% else %} {% url 'core:profile' %} {% endif %}" id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-trigger="hover"
+                    data-dropdown-placement="top"
+                    class="cursor-pointer flex flex-row gap-2 justify-center px-3 py-2 rounded-2xl transition-all duration-300 ease-in-out {% if url_name == 'profile' %} bg-primaryColor text-whiteColor shadow-md hover:bg-blue-600 {% else %} page-link hover:bg-zinc-400 {% endif %}"
+                    type="button">
                     <div class="w-6 h-6">
-                        <img src="{% static 'core/images/pfp.jpg' %}" class="{% if url_name == 'profile' %} ring-whiteColor {% else %} ring-primaryColor {% endif %} ring-2 rounded-full" alt="Profile picture">
+                        <img src="{% static 'core/images/pfp.jpg' %}"
+                            class="{% if url_name == 'profile' %} ring-whiteColor {% else %} ring-primaryColor {% endif %} ring-2 rounded-full"
+                            alt="Profile picture">
                     </div>
                     Profile
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+                        <path
+                            d="M17.9998 15C17.9998 15 13.5809 9.00001 11.9998 9C10.4187 8.99999 5.99985 15 5.99985 15"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
                 </a>
+
+                <!-- Dropdown menu -->
+                <div id="dropdownTop"
+                    class="z-10 hidden p-1.5 bg-whiteColor/10 backdrop-blur-xl rounded-2xl">
+                    <ul class="text-sm text-center inline-block" aria-labelledby="dropdownTopButton">
+                        <li>
+                            <form action="{% url 'auth:logout' %}" method="post" class="">
+                                {% csrf_token %}
+                                <button type="submit" class="flex items-center gap-2 font-medium text-whiteColor px-3 py-2 rounded-xl bg-transparent hover:bg-danger/20 transition-all duration-300 ease-in-out">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                        <path d="M15 17.625C14.9264 19.4769 13.3831 21.0494 11.3156 20.9988C10.8346 20.987 10.2401 20.8194 9.05112 20.484C6.18961 19.6768 3.70555 18.3203 3.10956 15.2815C3 14.723 3 14.0944 3 12.8373L3 11.1627C3 9.90561 3 9.27705 3.10956 8.71846C3.70555 5.67965 6.18961 4.32316 9.05112 3.51603C10.2401 3.18064 10.8346 3.01295 11.3156 3.00119C13.3831 2.95061 14.9264 4.52307 15 6.37501" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M21 12H10M21 12C21 11.2998 19.0057 9.99153 18.5 9.5M21 12C21 12.7002 19.0057 14.0085 18.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
     </nav>

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.conf import settings
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class CustomUserManager(BaseUserManager):
@@ -31,16 +33,18 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = 'Users'
 
     email = models.EmailField(unique=True)
+    username = models.CharField(max_length=255, unique=True, blank=False, null=False)
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(auto_now_add=True)
+    date_joined = models.DateTimeField(default=timezone.now)
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = [
+        'username',
         'first_name',
         'last_name',
     ]
@@ -48,14 +52,16 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-    def get_first_name(self):
+    def get_short_name(self):
+        """Return the short name for the user."""
         return self.first_name
 
-    def get_last_name(self):
-        return self.last_name
-
     def get_full_name(self):
-        return f'{self.first_name} {self.last_name}'
+        """
+        Return the first_name plus the last_name, with a space in between.
+        """
+        full_name = "%s %s" % (self.first_name, self.last_name)
+        return full_name.strip()
 
 
 class Profile(models.Model):

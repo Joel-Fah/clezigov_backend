@@ -156,3 +156,11 @@ SUMMERNOTE_CONFIG = {
 
 # Auth
 AUTH_USER_MODEL = 'authentication.CustomUser'
+LOGIN_URL = 'auth/login/'
+# LOGIN_REDIRECT_URL = 'core:procedures'
+# LOGOUT_REDIRECT_URL = 'auth:login'
+
+AUTHENTICATION_BACKENDS = [
+    'authentication.authenticate.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]

@@ -15,7 +15,7 @@ if (navbar) {
     hideTimeout = setTimeout(() => {
       navbar.classList.remove('-translate-y-14', 'opacity-100');
       navbar.classList.add('translate-y-0', 'opacity-10');
-    }, 2000); // 2000ms = 2 seconds
+    }, 10000); // 10000ms = 10 seconds
   }
 
   // Add event listeners to show and hide the navbar

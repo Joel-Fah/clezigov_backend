@@ -11,3 +11,8 @@ select:has(option:disabled:checked[hidden]) {
 select option {
     color: #F6F5F4;
 }
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
