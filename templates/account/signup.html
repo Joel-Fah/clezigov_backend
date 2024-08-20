@@ -1,0 +1,280 @@
+{% extends "auth/base_auth.html" %}
+{% load static tailwind_tags %}
+{% load static %}
+
+{# Title of the page #}
+{% block title %}
+Register
+{% endblock title %}
+
+{# Additional body styles #}
+{% block body_styles %}
+h-screen bg-backgroundColor bg-center bg-cover
+bg-[url(https://github.com/Joel-Fah/images/blob/main/about_bg.png?raw=true)]
+{% endblock body_styles %}
+
+{# Body of the page #}
+{% block body %}
+<main class="relative">
+    <div class="flex flex-col gap-10 justify-center items-center h-screen">
+        <div class="flex flex-col gap-2 items-center">
+            <small class="text-slate-500">👋🏽 Welcome to</small>
+            <img src="{% static 'core/images/logo_light.svg' %}" alt="Clezigov logo" class="w-1/6">
+            <small class="flex gap-2 items-center  text-slate-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none">
+                    <path
+                        d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+                        stroke="currentColor" stroke-width="1.5" />
+                    <path
+                        d="M12.2422 17V12C12.2422 11.5286 12.2422 11.2929 12.0957 11.1464C11.9493 11 11.7136 11 11.2422 11"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M11.992 8H12.001" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                If you instead want to register with your Google account, go back to the <a
+                    href="{% url 'account_login' %}" class="page-link text-primaryColor underline">sign in</a> screen.
+            </small>
+        </div>
+
+        <div class="w-3/5">
+            <form method="post"
+                class="flex flex-col justify-center gap-4 bg-whiteColor/10 p-4 rounded-3xl backdrop-blur-md shadow-xl">
+                {% csrf_token %}
+
+                {# Account setup #}
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-wrap gap-y-4">
+                        <div class="flex w-full">
+                            {# Full name field #}
+                            <div class="text-whiteColor w-1/2 px-2">
+                                <label for="name" class="block mb-2 ps-2.5 text-sm font-medium text-whiteColor/50">
+                                    {{ form.first_name.label }}
+                                </label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24" fill="none" class="text-slate-400">
+                                            <path
+                                                d="M14 3.5H10C6.22876 3.5 4.34315 3.5 3.17157 4.67157C2 5.84315 2 7.72876 2 11.5V12.5C2 16.2712 2 18.1569 3.17157 19.3284C4.34315 20.5 6.22876 20.5 10 20.5H14C17.7712 20.5 19.6569 20.5 20.8284 19.3284C22 18.1569 22 16.2712 22 12.5V11.5C22 7.72876 22 5.84315 20.8284 4.67157C19.6569 3.5 17.7712 3.5 14 3.5Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                            <path d="M5 16C6.03569 13.4189 9.89616 13.2491 11 16" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" />
+                                            <path
+                                                d="M9.75 9.75C9.75 10.7165 8.9665 11.5 8 11.5C7.0335 11.5 6.25 10.7165 6.25 9.75C6.25 8.7835 7.0335 8 8 8C8.9665 8 9.75 8.7835 9.75 9.75Z"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path d="M14 8.5H19M14 12H19M14 15.5H16.5" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    {{ form.first_name }}
+                                    <!-- <input type="text" id="name" name="name"
+                                        class="rounded-xl block w-full ps-10 p-2.5 bg-slate-700 hover:bg-slate-600 border-slate-600 placeholder-slate-400 text-white focus:ring-primaryColor focus:border-primaryColor transition-all duration-300 ease-in-out"
+                                        placeholder="Joël Fah" required> -->
+                                </div>
+                            </div>
+
+                            {# Email field #}
+                            <div class="text-whiteColor w-1/2 px-2">
+                                <label for="email" class="block mb-2 ps-2.5 text-sm font-medium text-whiteColor/50">
+                                    {{ form.email.label }}
+                                </label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24" fill="none" class="text-slate-400">
+                                            <path
+                                                d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M2.01576 13.4756C2.08114 16.5411 2.11382 18.0739 3.24495 19.2093C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.755 19.2093C21.8862 18.0739 21.9189 16.5411 21.9842 13.4756C22.0053 12.4899 22.0053 11.51 21.9842 10.5244C21.9189 7.45883 21.8862 5.92606 20.755 4.79063C19.6239 3.6552 18.0497 3.61565 14.9012 3.53654C12.9607 3.48778 11.0393 3.48778 9.09882 3.53653C5.95033 3.61563 4.37608 3.65518 3.24495 4.79062C2.11382 5.92605 2.08113 7.45882 2.01576 10.5243C1.99474 11.51 1.99474 12.4899 2.01576 13.4756Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    {{ form.email }}
+                                    <!-- <input type="tel" id="phone" name="phone"
+                                        class="rounded-xl block w-full ps-10 p-2.5 bg-slate-700 hover:bg-slate-600 border-slate-600 placeholder-slate-400 text-white focus:ring-primaryColor focus:border-primaryColor transition-all duration-300 ease-in-out"
+                                        placeholder="name@clezigov.com" required> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex w-full">
+                            {# Username field #}
+                            <div class="text-whiteColor w-1/3 px-2">
+                                <label for="username" class="block mb-2 ps-2.5 text-sm font-medium text-whiteColor/50">
+                                    {{ form.username.label }}
+                                </label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24" fill="none" class="text-slate-400">
+                                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+                                            <path
+                                                d="M7.5 17C9.8317 14.5578 14.1432 14.4428 16.5 17M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                    {{ form.username }}
+                                    <!-- <input type="text" id="username" name="username"
+                                        class="rounded-xl block w-full ps-10 p-2.5 bg-slate-700 hover:bg-slate-600 border-slate-600 placeholder-slate-400 text-white focus:ring-primaryColor focus:border-primaryColor transition-all duration-300 ease-in-out"
+                                        placeholder="user__name" required> -->
+                                </div>
+                            </div>
+
+                            {# Password field #}
+                            <div class="text-whiteColor w-1/3 px-2">
+                                <label for="password" class="block mb-2 ps-2.5 text-sm font-medium text-whiteColor/50">
+                                    {{ form.password1.label }}
+                                </label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24" fill="none" class="text-slate-400">
+                                            <path
+                                                d="M13.4998 13.5C15.1242 14.1962 15.9365 14.5443 16.7554 14.4351C16.8478 14.4227 16.9396 14.4061 17.0305 14.3852C17.8357 14.2003 18.4742 13.5894 19.7513 12.3676L19.9012 12.2242C20.8695 11.2559 21.3537 10.7717 21.4713 9.78342C21.5889 8.79514 21.3365 8.38218 20.8317 7.55626C20.3833 6.82247 19.7571 5.98593 18.8855 5.11433C18.0139 4.24272 17.1773 3.61654 16.4435 3.16808C15.6176 2.66332 15.2047 2.41094 14.2164 2.52851C13.2281 2.64609 12.7439 3.13027 11.7756 4.09863L11.6322 4.24843C10.4105 5.52557 9.7996 6.16413 9.61466 6.96941C9.59382 7.0602 9.57721 7.1519 9.56489 7.24423C9.45564 8.06322 9.80375 8.87548 10.5 10.5"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M10.5002 10.499L2.50021 18.4997V21.4997H5.50021V19.4997H7.50021V17.4997H9.50021L13.5002 13.4997"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M17.0002 7L16.0002 8" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    {{ form.password1 }}
+                                    <!-- <input type="password" id="password" name="password"
+                                        class="rounded-xl block w-full ps-10 p-2.5 mb-1 bg-slate-700 hover:bg-slate-600 border-slate-600 placeholder-slate-400 text-white focus:ring-primaryColor focus:border-primaryColor transition-all duration-300 ease-in-out"
+                                        placeholder="●●●●●●●●●●●●●●" required> -->
+                                    <div class="absolute inset-y-0 end-0 flex items-center pe-2.5 cursor-pointer"
+                                        id="toggle-password-visibility">
+                                        <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            width="24" height="24" fill="none" class="text-slate-400">
+                                            <path
+                                                d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path
+                                                d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {# Confirm password field #}
+                            <div class="text-whiteColor w-1/3 px-2">
+                                <label for="confirm_password"
+                                    class="block mb-2 ps-2.5 text-sm font-medium text-whiteColor/50">
+                                    {{ form.password2.label }}
+                                </label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24" fill="none" class="text-slate-400">
+                                            <path
+                                                d="M18 10.9971C17.6078 10.1968 16.5481 9.02153 14.3703 9.07154C14.3703 9.07154 12.6431 8.99652 10.6906 8.99652C8.73815 8.99652 7.82408 9.04224 6.25999 9.07154C5.25872 9.04653 3.35629 9.2716 2.48018 11.3472C1.90445 13.0976 1.87941 16.7736 2.22986 18.6241C2.30496 19.5744 2.80559 20.8998 4.35757 21.6C5.30878 22.1001 6.83573 21.9 7.9872 22.0001M5.98465 8.1963C5.93458 5.82065 5.83445 3.94514 8.58796 2.39472C9.51414 2.01962 10.8909 1.69453 12.5931 2.49475C14.3703 3.57004 14.5917 4.70802 14.7458 4.99543C15.1713 6.12074 14.9461 7.72117 14.9961 8.37135"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                            <path
+                                                d="M15.5 19.7351C15.5 20.9792 14.4911 21.9656 13.2552 21.9656C12.0194 21.9656 11 20.9792 11 19.7351C11 18.4911 12.0194 17.4915 13.2552 17.4915C14.4911 17.4915 15.5 18.4911 15.5 19.7351Z"
+                                                stroke="currentColor" stroke-width="1.5" />
+                                            <path
+                                                d="M15.2251 17.7909L17.2156 15.8482M22.0001 15.8482L20.3731 14.3089C19.6001 13.5692 18.9501 14.2149 18.6264 14.4906L17.2156 15.8482M17.2156 15.8482L18.8251 17.3936"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                    {{ form.password2 }}
+                                    <!-- <input type="password" id="confirm_password" name="confirm_password"
+                                        class="rounded-xl block w-full ps-10 p-2.5 mb-1 bg-slate-700 hover:bg-slate-600 border-slate-600 placeholder-slate-400 text-white focus:ring-primaryColor focus:border-primaryColor transition-all duration-300 ease-in-out"
+                                        placeholder="●●●●●●●●●●●●●●" required> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {# Submit Form #}
+                <div class="flex flex-col gap-4 justify-center">
+                    <div class="px-5">
+                        <hr class="w-auto border-slate-400">
+                    </div>
+                    <button type="submit"
+                        class="bg-primaryColor hover:bg-blue-600 text-whiteColor py-2 px-5 rounded-xl transition-all duration-300 ease-in-out">
+                        Create account
+                    </button>
+                    <!-- Display errors in ordered list -->
+                    {% if form.errors %}
+                    <div class="text-danger text-sm">
+                        <h3 class="font-bold">Form validation errors</h3>
+                        <ul class="list-inside">
+                            {% for field in form %}
+                            <li class="ms-2">
+                                {{ field.errors|striptags }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+            </form>
+        </div>
+
+        <!-- Add links for terms of privacy fixed at the bottom of the page -->
+        <div class="fixed w-full bottom-3 text-slate-500 text-center text-sm left-1/2 transform -translate-x-1/2">
+            <span class="">&copy; 2024 Clezigov. All rights reserved.</span>
+            <span class="mx-2">|</span>
+            <span class="text-slate-500 text-center">
+                By creating an account, you agree to our <a href="#" class="text-primaryColor">Terms of
+                    Service</a> and <a href="#" class="text-primaryColor">Privacy Policy</a>.
+            </span>
+            <span class="mx-2">|</span>
+            <span class="">v1.0.0</span>
+        </div>
+    </div>
+</main>
+{% endblock body %}
+
+{% block javascript %}
+<script>
+    function toggleChipSelection(chipElement) {
+        // Toggle the selected state by adding/removing the appropriate classes
+        chipElement.classList.toggle('bg-slate-700');
+        chipElement.classList.toggle('hover:bg-slate-600');
+        chipElement.classList.toggle('bg-primaryColor');
+        chipElement.classList.toggle('hover:bg-blue-600');
+        chipElement.classList.toggle('text-slate-400');
+        chipElement.classList.toggle('text-whiteColor');
+
+        // Toggle the visibility of the checked icon
+        const checkedIcon = chipElement.querySelector('.checked-icon');
+        const chipItemText = chipElement.querySelector('.chip-item');
+
+        if (checkedIcon) {
+            checkedIcon.classList.toggle('opacity-0');
+            chipItemText.classList.toggle('ms-3');
+        }
+
+        // Toggle the margin spacing
+    } 
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.querySelector('#password');
+        const togglePasswordVisibility = document.querySelector('#toggle-password-visibility');
+        const eyeIcon = document.querySelector('#eye-icon');
+
+        togglePasswordVisibility.addEventListener('click', function () {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            eyeIcon.innerHTML = isPassword
+                ? '<path d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z" stroke="currentColor" stroke-width="1.5" /> <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="currentColor" stroke-width="1.5" />'
+                : '<path d="M19.439 15.439C20.3636 14.5212 21.0775 13.6091 21.544 12.955C21.848 12.5287 22 12.3155 22 12C22 11.6845 21.848 11.4713 21.544 11.045C20.1779 9.12944 16.6892 5 12 5C11.0922 5 10.2294 5.15476 9.41827 5.41827M6.74742 6.74742C4.73118 8.1072 3.24215 9.94266 2.45604 11.045C2.15201 11.4713 2 11.6845 2 12C2 12.3155 2.15201 12.5287 2.45604 12.955C3.8221 14.8706 7.31078 19 12 19C13.9908 19 15.7651 18.2557 17.2526 17.2526" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><path d="M9.85786 10C9.32783 10.53 9 11.2623 9 12.0711C9 13.6887 10.3113 15 11.9289 15C12.7377 15 13.47 14.6722 14 14.1421" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><path d="M3 3L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />';
+        });
+    });
+</script>
+{% endblock javascript %}

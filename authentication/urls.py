@@ -1,11 +1,9 @@
 from django.urls import path
-from .views import UserLoginView, UserRegisterView, UserLogoutView
+from .views import UserLoginView, UserLogoutView, UserRegisterView
 
 # Create your urls here
-app_name = 'auth'
-
 urlpatterns = [
-    path('login/', UserLoginView.as_view(), name='login'),
-    path('register/', UserRegisterView.as_view(), name='register'),
-    path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('accounts/login/', UserLoginView.as_view(), name='account_login'),
+    path('accounts/logout/', UserLogoutView.as_view(), name='account_logout'),
+    path('accounts/register/', UserRegisterView.as_view(), name='account_signup'),
 ]

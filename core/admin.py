@@ -18,7 +18,8 @@ class CustomAdminFileWidget(AdminFileWidget):
                         width="150" height="150"
                         style="object-fit: contain;"
                       />
-                    </a>'''
+                    </a>
+                '''
             )
         result.append(super().render(name, value, attrs, renderer))
         return format_html("".join(result))

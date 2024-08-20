@@ -1,6 +1,6 @@
 {% if messages %}
 {% for msg in messages %}
-<div class="fixed w-auto top-4 right-4">
+<div class="fixed w-auto max-w48 top-4 right-4">
     <div id="alert-{{ forloop.counter }}" class="flex items-center p-4 mb-4 rounded-2xl bg-slate-800 border
             {% if msg.tags == 'info' %} text-primaryColor border-primtext-primaryColor
                 {% elif msg.tags == 'error' %} text-danger border-danger
@@ -89,10 +89,10 @@
         }, 50);
     }
 
-    // Automatically fade out after 5 seconds
-    setTimeout(function () {
-        fadeOutAlert('alert-{{ forloop.counter }}');
-    }, 5000);
+    // Automatically fade out after 10 seconds
+    // setTimeout(function () {
+       //  fadeOutAlert('alert-{{ forloop.counter }}');
+    // }, 10000);
 </script>
 {% endfor %}
 {% endif %}

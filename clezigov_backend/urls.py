@@ -22,10 +22,11 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
-    path('auth/', include('authentication.urls', namespace='auth')),
+    path('', include('authentication.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('__reload__/', include("django_browser_reload.urls")),
     path('api/', include('rest_framework.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

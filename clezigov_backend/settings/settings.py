@@ -30,6 +30,10 @@ INSTALLED_APPS = [
 
     'core.apps.CoreConfig',
     'authentication.apps.AuthenticationConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'django_summernote',
     'tailwind',
     'theme',
@@ -48,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'clezigov_backend.urls'
@@ -64,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -155,12 +161,30 @@ SUMMERNOTE_CONFIG = {
 }
 
 # Auth
-AUTH_USER_MODEL = 'authentication.CustomUser'
-LOGIN_URL = 'auth/login/'
-# LOGIN_REDIRECT_URL = 'core:procedures'
-# LOGOUT_REDIRECT_URL = 'auth:login'
+# AUTH_USER_MODEL = 'authentication.CustomUser'
+LOGIN_URL = 'account_login'
+LOGIN_REDIRECT_URL = 'core:procedures'
+# LOGOUT_REDIRECT_URL = 'account_login'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTHENTICATION_BACKENDS = [
-    'authentication.authenticate.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# All Auth settings
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_FORMS = {
+    'login': 'authentication.forms.UserLoginForm',
+    'signup': 'authentication.forms.UserRegisterForm',
+}
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+RANDOM_PASSWORD_LENGTH = 16
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SOCIALACCOUNT_AUTO_SIGNUP = True
