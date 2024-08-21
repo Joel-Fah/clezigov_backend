@@ -10,15 +10,14 @@ Procedures
 {# Body of the page #}
 {% block body %}
 
-<main class="flex flex-col gap-6 justify-center items-center h-screen bg-backgroundColor bg-center bg-cover bg-[url(https://github.com/Joel-Fah/images/blob/main/connect_bg.png?raw=true)]">
+<main class="grid grid-cols-12 max-w-screen-lg gap-6 p-4 justify-center items-center">
     {% include 'components/message.html' %}
-    <img src="{% static 'core/images/logo_light.svg' %}" alt="Clezigov Logo" class="w-1/2 md:w-1/4" />
-    <div class="text-center text-whiteColor/50 text-3xl font-['Eufoniem_one']">
-        coming soon to the web...
+    
+    <div class="side-panel col-span-4"></div>
+
+    <div class="main-panel col-span-8">
+        <h1 class="text-4xl font-bold">Procedures</h1>
     </div>
-    <span class="text-white">
-        {{ request.user.email }}
-    </span>
 </main>
 
 {% endblock %}

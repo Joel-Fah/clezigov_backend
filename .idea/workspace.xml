@@ -6,28 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4c69c31d-3421-4b4d-a004-1ec56632c11a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/authenticate.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/authenticate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0002_profile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0003_alter_customuser_options_customuser_username.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0004_alter_customuser_date_joined.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clezigov_backend/settings/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/clezigov_backend/settings/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clezigov_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/clezigov_backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0002_alter_availability_options_alter_category_options_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/auth/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/auth/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/base_auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/base_auth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/components/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/components/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/core/procedures.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/core/procedures.html" afterDir="false" />
@@ -149,7 +131,7 @@
       <workItem from="1724063550877" duration="9307000" />
       <workItem from="1724079202623" duration="4294000" />
       <workItem from="1724086291851" duration="15569000" />
-      <workItem from="1724146295252" duration="24925000" />
+      <workItem from="1724146295252" duration="31383000" />
     </task>
     <servers />
   </component>

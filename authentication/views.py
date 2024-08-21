@@ -1,23 +1,18 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView
 from allauth.account.views import LoginView, LogoutView, SignupView
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .forms import UserLoginForm, UserRegisterForm
 from django.utils.html import format_html
-from core.models import Category
 
 
 # Create your views here.
-class UserLoginView(LoginView):
+class UserLoginView(SuccessMessageMixin, LoginView):
+    # override success message
+    success_message = "You are successfully logged in.<br>Welcome back! ✌🏽"
+
     def form_valid(self, form):
         """If the form is valid, send a success message and log the user in."""
         response = super().form_valid(form)
-        remember_me = form.cleaned_data['remember_me']
-        if remember_me:
-            self.request.session.set_expiry(60 * 60 * 24 * 30)  # 30 days
-        else:
-            self.request.session.set_expiry(0)  # session expires when the browser is closed
         message = format_html("You are successfully logged in.<br>Welcome back! ✌🏽")
         messages.success(self.request, message)
         return response
